@@ -1,4 +1,13 @@
 apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+    maven { url 'https://maven.google.com/' }
+    maven { url 'http://maven.mogujie.org/nexus/content/groups/mitpublic/' }
+    maven { url 'http://mvn.gt.igexin.com/nexus/content/repositories/releases/' }
+    jcenter()
+}
+
 
 sourceSets {
     main {
@@ -8,6 +17,21 @@ sourceSets {
 
         resources {
             srcDir 'src/main/resources'
+        }
+    }
+}
+
+dependencies {
+    implementation('com.android.tools.build:gradle:3.6.3')
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file:\\:d\\tmp\\gradle\\")
+            pom.groupId = 'com.mogujie.gralde'
+            pom.version = '0.0.1-SNAPSHOT'
+            pom.artifactId = 'buildConfig'
         }
     }
 }

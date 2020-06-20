@@ -10,6 +10,10 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "onClick: ");
+                Toast.makeText(MainActivity.this,"oooooooo",Toast.LENGTH_SHORT).show();
                 testMem = "adbcdeb";
             }
         });
@@ -49,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "oritimes: " + oriTime);
+                Toast.makeText(MainActivity.this,"aaaaa",Toast.LENGTH_SHORT).show();
               //  sendRunnable.changeTimes(oriTime+=4);
                 testMem = null;
             }
@@ -57,9 +63,11 @@ public class MainActivity extends AppCompatActivity {
        // ProxyClickListener proxyOnClickListener = new ProxyClickListener(onClickListenerInstance);
 
         //   startThread(msgHandler,oriTime);
-
+        File fi = new File("./","mo.xml");
 
     }
+
+
 
 
 

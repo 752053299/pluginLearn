@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MSH>
+    <!-- 组件需要把自己注册在这份文件，举例如下 -->
+    <!--<module name="ModuleSample" init="lazy/lazy" package="com.mogujie.module.sample">-->
+    <!--<application>-->
+    <!--<name>.SampleModuleApplication</name>-->
+    <!--</application>-->
+
+    <!--<runtime>-->
+    <!--<alias name="env">com.mogujie.mshdemo.RuntimeEnvImpl</alias>-->
+    <!--<service>sample_service</service>-->
+    <!--</runtime>-->
+
+    <!--<lifecycle>-->
+    <!--<reg>onAppInit</reg>-->
+    <!--<reg>onAppBackResume</reg>-->
+    <!--<reg>onAppIndexActCreate</reg>-->
+    <!--<reg>onUserLogin</reg>-->
+    <!--<reg>onUserLogout</reg>-->
+    <!--<reg>onAppFinish</reg>-->
+    <!--</lifecycle>-->
+    <!--</module>-->
+    <!-- 组件需要把自己注册在这份文件，举例如下 -->
+
+    <!--Module host-->
+    <module name="ModuleHost" init="lazy" package="com.mogujie.host" packageId="0x30" type="com"
+        version="0.0.1">
+        <application>
+            <name>.HostModuleApplication</name>
+        </application>
+
+        <runtime>
+            <service>mgj_com_service_host</service>
+        </runtime>
+    </module>
+    <!--Module host-->
+
+    <!--Module index-->
+    <!--<module name="ModuleIndex" init="lazy" package="com.mogujie.index" packageId="0x31" type="com"-->
+        <!--version="0.0.1">-->
+        <!--<application>-->
+            <!--<name>.IndexModuleApplication</name>-->
+        <!--</application>-->
+
+        <!--<runtime>-->
+            <!--<service>mgj_com_service_index</service>-->
+        <!--</runtime>-->
+    <!--</module>-->
+    <!--Module index-->
+
+    <!--Module profile-->
+    <module name="ModuleProfile" init="lazy" package="com.mogujie.me" packageId="0x32" type="com"
+        version="0.0.1">
+        <application>
+            <name>.ProfileModuleApplication</name>
+        </application>
+
+        <runtime>
+            <service>mgj_com_service_profile</service>
+        </runtime>
+    </module>
+    <!--Module profile-->
+
+    <!--Module life style publish-->
+    <module name="ModuleLifeStylePublish" init="normal" package="com.mogujie.lifestylepublish"
+        packageId="0x33" type="com" version="0.0.1">
+        <application>
+            <name>.PublishModuleApplication</name>
+        </application>
+
+        <runtime>
+            <service>mgj_com_service_lifestylepublish</service>
+        </runtime>
+    </module>
+    <!--Module life style publish-->
+
+    <!--Module shopping guide-->
+    <module name="ModuleShoppingGuide" init="lazy" package="com.mogujie.shoppingguide"
+        packageId="0x34" type="com" version="0.0.1">
+        <application>
+            <name>.ShoppingGuideModuleApplication</name>
+        </application>
+
+        <runtime>
+            <service>mgj_com_service_shoppingguide</service>
+        </runtime>
+    </module>
+    <!--Module shopping guide-->
+
+    <!--Module trade-->
+    <module name="ModuleTrade" init="lazy" package="com.mogujie.trade" packageId="0x35"
+        type="com" version="0.0.1">
+        <application>
+            <name>.TradeModuleApplication</name>
+        </application>
+
+        <runtime>
+            <service>mgj_com_service_trade</service>
+        </runtime>
+    </module>
+    <!--Module trade-->
+
+    <!--Module login-->
+    <module name="ModuleLogin" init="normal" package="com.mogujie.login" packageId="0x36" type="com"
+        version="0.0.1">
+        <application>
+            <name>.LoginModuleApplication</name>
+        </application>
+
+        <runtime>
+            <alias name="router">com.mogujie.login.LoginRouter</alias>
+            <alias name="userManager">com.mogujie.login.UserManager</alias>
+            <alias name="shouldCheckUname">true</alias>
+            <service>ILoginService</service>
+        </runtime>
+    </module>
+    <!--Module login-->
+
+    <!--Module paysdk-->
+    <module name="ModulePaySDK" init="normal" package="com.mogujie.mgjpaysdk.msh" packageId="0x37"
+        type="com" version="0.0.1">
+        <application>
+            <name>.PaySDKModuleApp</name>
+        </application>
+
+        <runtime>
+            <service>pf_paysdk_service</service>
+        </runtime>
+    </module>
+    <!--Module paysdk-->
+
+    <!--Module bind card-->
+    <module name="ModuleBindCard" init="lazy" package="com.mogujie.mgjpfbindcard.msh"
+        packageId="0x38" type="com" version="0.0.1">
+        <application>
+            <name>.BindCardModuleApplication</name>
+        </application>
+
+        <runtime>
+            <service>pf_bindcard_service</service>
+        </runtime>
+    </module>
+    <!--Module bind card-->
+
+    <!--Module im-->
+    <module name="ModuleIM" init="lazy" package="com.mogujie.im.libs.mgservices" packageId="0x39"
+        type="com" version="0.0.1">
+        <application>
+            <name>.MGJIMServiceModuleApplication</name>
+        </application>
+
+        <runtime>
+            <service>mgj_com_service_im</service>
+        </runtime>
+
+        <lifecycle>
+            <reg>onAppInit</reg>
+            <!--进程初始化，冷启动-->
+            <reg>onAppBackResume</reg>
+            <!--热启动-->
+            <reg>onUserLogin</reg>
+            <!--用户登录-->
+            <reg>onUserLogout</reg>
+            <!--用户登出-->
+            <reg>onAppFinish</reg>
+            <!--退出app-->
+        </lifecycle>
+
+    </module>
+    <!--Module im-->
+
+    <!--Module search-->
+    <module name="ModuleSearch" init="lazy" package="com.mogujie.businessbasic" packageId="0x3a"
+        debugType="plugin" type="com" version="0.0.1">
+        <application>
+            <name>.MGSearchApp</name>
+        </application>
+
+        <runtime>
+            <service>ISearchService</service>
+        </runtime>
+    </module>
+    <!--Module search-->
+
+    <!--Module market-->
+    <module name="ModuleMarket" init="lazy" package="com.mogujie.triplebuy" packageId="0x3b"
+      debugType="plugin"  type="com" version="0.0.1">
+        <application>
+            <name>.MGMarketApp</name>
+        </application>
+
+        <runtime>
+            <service>ITripleBuyService</service>
+        </runtime>
+    </module>
+    <!--Module market-->
+
+    <!--Module detail-->
+    <module name="ModuleDetail" init="lazy" package="com.mogujie.detail" packageId="0x3c" type="com"
+        version="0.0.1">
+        <application>
+            <name>.DetailModuleApplication</name>
+        </application>
+        <runtime>
+            <service>mgj_com_service_detail</service>
+        </runtime>
+    </module>
+    <!--Module detail-->
+
+    <!--Module live-->
+    <module name="ModuleLive" init="lazy" package="com.mogujie.live" packageId="0x3d"
+        type="com" version="0.0.1">
+        <application>
+            <name>.MGLiveRoomModuleApplication</name>
+        </application>
+    </module>
+    <!--Module live-->
+
+<!--    &lt;!&ndash;Module timeline detail&ndash;&gt;-->
+<!--    <module name="ModuleTLDetail" init="normal" package="com.mogujie.lifestyledetail" packageId="0x3e"-->
+<!--        type="com" version="0.0.1">-->
+<!--        <application>-->
+<!--            <name>.TLDetailModuleApplication</name>-->
+<!--        </application>-->
+<!--    </module>-->
+<!--    &lt;!&ndash;Module timeline detail&ndash;&gt;-->
+
+<!--    &lt;!&ndash;Module shop&ndash;&gt;-->
+<!--    <module name="ModuleShop" init="lazy" package="com.mogujie.xiaodian" packageId="0x3f" type="com"-->
+<!--        version="0.0.1">-->
+<!--        <application>-->
+<!--            <name>.MGJShopModuleApplication</name>-->
+<!--        </application>-->
+<!--    </module>-->
+<!--    &lt;!&ndash;Module shop&ndash;&gt;-->
+
+    <!--Module index-->
+    <module name="ModuleOutfit" init="lazy" package="com.mogujie.outfit" packageId="0x42" type="com"
+        version="0.0.1">
+        <application>
+            <name>.OutfitModuleApplication</name>
+        </application>
+
+        <runtime>
+            <service>mgj_com_service_outfit</service>
+        </runtime>
+    </module>
+    <!--Module index-->
+
+    <!--Module Kaleidoscope-->
+    <module name="ModuleKaleidoscope" init="lazy" package="com.mogujie.kaleidoscope" packageId="0x43"
+        type="com" version="0.0.1">
+        <application>
+            <name>.KaleidoscopeModuleApplication</name>
+        </application>
+        <lifecycle>
+            <reg>onAppInit</reg>
+            <!--进程初始化，冷启动-->
+            <reg>onAppBackResume</reg>
+            <!--热启动-->
+            <reg>onUserLogin</reg>
+            <!--用户登录-->
+            <reg>onUserLogout</reg>
+            <!--用户登出-->
+            <reg>onAppFinish</reg>
+            <!--退出app-->
+        </lifecycle>
+    </module>
+    <!--Module Kaleidoscope-->
+
+    <!--Module liveList-->
+    <module name="ModuleLiveList" init="lazy" package="com.mogujie.liveindexlist" packageId="0x45"
+        type="com" version="0.0.1">
+        <application>
+            <name>.MGLiveModuleApplication</name>
+        </application>
+        <runtime>
+            <service>mgj_com_service_livelist</service>
+        </runtime>
+    </module>
+    <!--Module liveList-->
+
+    <!--Module RealName-->
+    <module name="ModuleRealName" init="lazy" package="com.mogujie.realname.msh" packageId="0x46"
+        type="com" version="0.0.1">
+        <application>
+            <name>.RealNameModuleApplication</name>
+        </application>
+
+        <runtime>
+            <service>real_name_service</service>
+        </runtime>
+    </module>
+    <!--Module RealName-->
+
+    <!--Module Purse-->
+    <module name="ModulePurse" init="lazy" package="com.mogujie.purse.msh" packageId="0x47"
+        type="com" version="0.0.1">
+        <application>
+            <name>.PurseModuleApplication</name>
+        </application>
+
+        <runtime>
+            <service>pf_purse_service</service>
+        </runtime>
+    </module>
+    <!--Module Purse-->
+
+
+</MSH>

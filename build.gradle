@@ -1,48 +1,52 @@
+import org.gradle.api.internal.AbstractTask
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
         repositories {
-            RepositoryHandler reh->
-       reh.maven { url 'http://maven.mogujie.org/nexus/content/groups/mitpublic/' }
+            maven { url 'http://maven.mogujie.org/nexus/content/groups/mitpublic/' }
         maven { url 'http://mvn.gt.igexin.com/nexus/content/repositories/releases/' }
         maven { url 'https://maven.google.com/' }
+  //      maven { url 'file:\\D:\\tmp\\findRepo\\'}
+        maven { url 'file:\\D:\\tmp\\ThinrRepo\\'}
         jcenter()
     }
     dependencies {
         //classpath 'com.mogujie.gradle:upaar:1.7.4'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath 'com.mogujie:pandora-gradle:0.0.8.2'
-
+ //       classpath 'com.mogujie:pandora-gradle:0.0.8.2'
 //        classpath 'com.mogujie.gradle:manifest:0.2.0.4'
-        classpath 'com.mogujie.gradle:upaar:1.5.6'
-
-        classpath 'com.android.tools.build:gradle:2.3.1'
-
-        classpath 'com.mogujie.base:groovy:1.0.8'
-
-
+    //    classpath 'com.android.tools.build:gradle:3.6.3'
+        classpath 'com.android.tools.build:gradle:3.6.3'
+      //  classpath 'com.mogujie.gradle:thinR:1.0.2'
+  //      classpath 'com.example:findPlugin:1.0'
+        classpath("com.tencent.tinker:tinker-patch-gradle-plugin:${TINKER_VERSION}")
+        classpath 'com.tencent.mm:AndResGuard-gradle-plugin:1.2.18'
     }
 }
 
 allprojects {
     repositories {
+        maven { url 'https://maven.google.com/' }
         maven { url 'http://maven.mogujie.org/nexus/content/groups/mitpublic/' }
         maven { url 'http://mvn.gt.igexin.com/nexus/content/repositories/releases/' }
-        maven { url 'https://maven.google.com/' }
         jcenter()
     }
 }
+
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
 ext {
-    versionName = '1.1.6'
-    versionCode = 6
+    versionName = '1.1.7'
+    versionCode = 7
+    versionInfo = "哦哦哦这是一个测试"
     compileSdkVersion = 28
-    buildToolsVersion = '28.0.0'
+    buildToolsVersion = '28.0.3'
 }
 
 
