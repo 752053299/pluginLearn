@@ -32,26 +32,19 @@ android {
         versionName "1.0"
     }
     signingConfigs {
-        release {
-            try {
-                storeFile file("./keystore/release.keystore")
-                storePassword "testres"
-                keyAlias "testres"
-                keyPassword "testres"
-            } catch (ex) {
-                throw new InvalidUserDataException(ex.toString())
-            }
-        }
-
-        debug {
-
-            storeFile file("./keystore/debug.keystore")
+        myConfig {
+            storeFile file("mogujie.com")
+            storePassword "sharkshinjia"
+            keyPassword "sharkshinjia"
+            keyAlias "mogujie"
+            v1SigningEnabled true
+            v2SigningEnabled true
         }
     }
-
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
+            signingConfig signingConfigs.myConfig
            // shrinkResources true
             multiDexKeepProguard file("tinker_multidexkeep.pro")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),'proguard-rules.pro'
@@ -500,48 +493,14 @@ task sortPublicTxt() {
 
 
 apply plugin: 'AndResGuard'
+//本地资源压缩混淆配置
 andResGuard {
-    // mappingFile = file("./resource_mapping.txt")
-    mappingFile = null
+    //是否自动在结尾运行,默认不运行
+    autoResGuard = true
     use7zip = true
-    useSign = true
-    // 打开这个开关，会keep住所有资源的原始路径，只混淆资源的名字
-    keepRoot = false
-    whiteList = [
-            // for your icon
-            "R.drawable.icon",
-            // for fabric
-            "R.string.com.crashlytics.*",
-            // for google-services
-            "R.string.google_app_id",
-            "R.string.gcm_defaultSenderId",
-            "R.string.default_web_client_id",
-            "R.string.ga_trackingId",
-            "R.string.firebase_database_url",
-            "R.string.google_api_key",
-            "R.string.google_crash_reporting_api_key"
-    ]
-    compressFilePattern = [
-            "*.png",
-            "*.jpg",
-            "*.jpeg",
-            "*.gif",
-    ]
-    sevenzip {
-        artifact = 'com.tencent.mm:SevenZip:1.2.18'
-        //path = "/usr/local/bin/7za"
-    }
-
-    /**
-     * 可选： 如果不设置则会默认覆盖assemble输出的apk
-     **/
-    // finalApkBackupPath = "${project.rootDir}/final.apk"
-
-    /**
-     * 可选: 指定v1签名时生成jar文件的摘要算法
-     * 默认值为“SHA-1”
-     **/
-    // digestalg = "SHA-256"
+    keepRoot = true
+    //如果use7zip为true 则需要安装7zip（mac:sudo brew install p7zip）并填写你的路径
+    sevenZipPath = '/usr/bin/7za'
 }
 
 
@@ -551,11 +510,28 @@ afterEvaluate {
         Task assembleTask = tasks.findByName("assemble${taskName.capitalize()}")
         Task resGuardTask = tasks.findByName("resguard${taskName.capitalize()}")
         Task tinkerPatchTask = tasks.findByName("tinkerPatch${taskName.capitalize()}")
-        if (assembleTask != null && resGuardTask != null && tinkerPatchTask != null){
-            println("do these dependsON")
-            resGuardTask.dependsOn(assembleTask)
-            tinkerPatchTask.dependsOn(resGuardTask)
+//        if (assembleTask != null && resGuardTask != null && tinkerPatchTask != null){
+//            println("do these dependsON")
+//            resGuardTask.dependsOn(assembleTask)
+//            tinkerPatchTask.dependsOn(resGuardTask)
+//        }
+        if(tinkerPatchTask != null){
+            String andResGuardOutApkPath = null
+            //其实就一个
+            variant.outputs.each {out->
+                andResGuardOutApkPath = out.outputFile
+            }
+            String tinkerNeedPath = andResGuardOutApkPath.replace('.','_signed_7zip_aligned.')
+           // def andResGuardOutApkPath =
+            tinkerPatchTask.doFirst {tinkerTask->
+                tinkerTask.buildApkPath = tinkerNeedPath
+            }
+            println("tinkerNeedPath: "+tinkerNeedPath)
         }
     }
+
+}
+
+task grammer {
 
 }

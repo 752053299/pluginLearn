@@ -8,7 +8,7 @@ buildscript {
         maven { url 'http://mvn.gt.igexin.com/nexus/content/repositories/releases/' }
         maven { url 'https://maven.google.com/' }
   //      maven { url 'file:\\D:\\tmp\\findRepo\\'}
-        maven { url 'file:\\D:\\tmp\\ThinrRepo\\'}
+//        maven { url 'file:\\D:\\tmp\\ThinrRepo\\'}
         jcenter()
     }
     dependencies {
@@ -19,11 +19,11 @@ buildscript {
 //        classpath 'com.mogujie.gradle:manifest:0.2.0.4'
     //    classpath 'com.android.tools.build:gradle:3.6.3'
         classpath 'com.android.tools.build:gradle:3.6.3'
-      //  classpath 'com.mogujie.gradle:thinR:1.0.2'
-  //      classpath 'com.example:findPlugin:1.0'
+        //  classpath 'com.mogujie.gradle:thinR:1.0.2'
+        //      classpath 'com.example:findPlugin:1.0'
         classpath("com.tencent.tinker:tinker-patch-gradle-plugin:${TINKER_VERSION}")
-        classpath 'com.tencent.mm:AndResGuard-gradle-plugin:1.2.18'
-    }
+        //资源文件压缩插件 命令gradle resguard
+        classpath 'com.mogujie.gradle:MGAndResGuard:1.0.4'    }
 }
 
 allprojects {
@@ -48,7 +48,6 @@ ext {
     compileSdkVersion = 28
     buildToolsVersion = '28.0.3'
 }
-
 
 
 

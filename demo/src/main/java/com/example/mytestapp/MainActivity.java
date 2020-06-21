@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "onClick: ");
-                Toast.makeText(MainActivity.this,"oooooooo",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"tinkertinker",Toast.LENGTH_SHORT).show();
                 testMem = "adbcdeb";
             }
         });
@@ -64,7 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
         //   startThread(msgHandler,oriTime);
         File fi = new File("./","mo.xml");
-
+        if (Utils.isPresent(fi.getName())){
+            Log.i(TAG, "tinkertinker");
+        }
     }
 
 

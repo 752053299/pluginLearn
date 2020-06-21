@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resproguard>
+    <!--defaut property to set  -->
+    <issue id="property" >
+        <!--whether use 7zip to repackage the signed apk, you must install the 7z command line version in window -->
+        <!--sudo apt-get install p7zip-full in linux -->
+        <!--and you must write the sign data fist, and i found that if we use linux, we can get a better result -->
+        <seventzip value= "true" />
+        <!--the sign data file name in your apk, default must be META-INF-->
+        <!--generally, you do not need to change it if you dont change the meta file name in your apk-->
+        <metaname value="META-INF" />
+        <!--if keep root, res/drawable will be kept, it won't be changed to such as r/s-->
+        <keeproot value="true" />
+    </issue>
+
+    <!--whitelist, some resource id you can not proguard, such as getIdentifier-->
+    <!--isactive, whether to use whitelist, you can set false to close it simply-->
+    <issue id="whitelist" isactive="true">
+         <!--you must write the full package name, such as com.tencent.mm.R -->
+         <!--for some reason, we should keep our icon better-->
+         <!--and it support *, ?, such as com.tencent.mm.R.drawable.emoji_*, com.tencent.mm.R.drawable.emoji_?-->
+        <path value ="com.tencent.mm.R.drawable.icon" />
+        <path value ="com.tencent.mm.R.drawable.emoji_*" />
+
+        <path value ="com.mogujie.R.mipmap.app_icon" />
+
+         <path value ="com.mogujie.R.string.com.crashlytics.android.build_id" />
+
+        <path value ="com.mogujie.R.xml.config" />
+        <path value ="com.mogujie.webapp4mgj.R.xml.config" />
+        <path value ="com.mogujie.R.raw.xwalk" />
+        <path value ="com.mogujie.R.array.xwalk_resources_list" />
+
+        <path value ="com.mogujie.R.drawable.init_bg_first" />
+        <path value ="com.mogujie.R.drawable.init_bg_first" />
+        <!-- 美妆-->
+        <path value ="com.mogujie.R.drawable.makeup_fugu"></path>
+        <path value ="com.mogujie.R.drawable.makeup_fugu_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_hanzhuang"></path>
+        <path value ="com.mogujie.R.drawable.makeup_hanzhuang_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_kunling"></path>
+        <path value ="com.mogujie.R.drawable.makeup_kunling_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_miyue_dechong"></path>
+        <path value ="com.mogujie.R.drawable.makeup_miyue_dechong_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_miyue_taihou"></path>
+        <path value ="com.mogujie.R.drawable.makeup_miyue_taihou_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_miyue_taohua"></path>
+        <path value ="com.mogujie.R.drawable.makeup_miyue_taohua_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_paidui"></path>
+        <path value ="com.mogujie.R.drawable.makeup_paidui_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_rizhuang"></path>
+        <path value ="com.mogujie.R.drawable.makeup_rizhuang_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_sennv"></path>
+        <path value ="com.mogujie.R.drawable.makeup_sennv_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_xinnian"></path>
+        <path value ="com.mogujie.R.drawable.makeup_xinnian_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_xueyuan"></path>
+        <path value ="com.mogujie.R.drawable.makeup_xueyuan_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_yaogun"></path>
+        <path value ="com.mogujie.R.drawable.makeup_yaogun_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_yuantu_cover"></path>
+        <path value ="com.mogujie.R.drawable.makeup_yuehui"></path>
+        <path value ="com.mogujie.R.drawable.makeup_yuehui_cover"></path>
+        <path value ="com.mogujie.R.drawable.xxx"></path>
+        <path value ="com.mogujie.R.drawable.color_7"></path>
+        <path value ="com.mogujie.R.drawable.fb_origin"></path>
+
+        <path value ="com.mogujie.R.drawable.btn_web_add"></path>
+        <path value ="com.mogujie.R.drawable.btn_web_back_white"></path>
+        <path value ="com.mogujie.R.drawable.btn_web_calendar"></path>
+        <path value ="com.mogujie.R.drawable.btn_web_certain"></path>
+        <path value ="com.mogujie.R.drawable.btn_web_delete"></path>
+        <path value ="com.mogujie.R.drawable.btn_web_list"></path>
+        <path value ="com.mogujie.R.drawable.btn_web_share"></path>
+
+        <path value ="com.mogujie.R.drawable.mogu_ptr_reverse*"></path>
+        <path value ="com.mogujie.R.drawable.mg_ptr_reverse*"></path>
+        <path value ="com.mogujie.R.drawable.progressbar_loading*"></path>
+
+        <!-- 社区 -->
+        <path value ="com.mogujie.R.drawable.community_classic_*"></path>
+        <path value ="com.mogujie.R.drawable.community_ecy_*"></path>
+        <path value ="com.mogujie.R.drawable.community_etj_*"></path>
+        <!-- 启动图 -->
+        <path value ="com.mogujie.R.drawable.default_logo_banner"></path>
+        <!-- 涂图 -->
+        <path value ="com.mogujie.R.drawable.lsq*"></path>
+        <path value ="com.mogujie.R.drawable.tusdk*"></path>
+
+        <path value ="com.mogujie.R.color.lsq*"></path>
+        <path value ="com.mogujie.R.color.tusdk*"></path>
+
+        <path value ="com.mogujie.R.layout.lsq*"></path>
+        <path value ="com.mogujie.R.layout.tusdk*"></path>
+
+        <path value ="com.mogujie.R.dimens.lsq*"></path>
+        <path value ="com.mogujie.R.dimens.tusdk*"></path>
+
+        <path value ="com.mogujie.R.string.lsq*"></path>
+        <path value ="com.mogujie.R.string.tusdk*"></path>
+
+        <path value ="com.mogujie.R.style.lsq*"></path>
+        <path value ="com.mogujie.R.style.tusdk*"></path>
+
+        <path value ="com.mogujie.R.anim.lsq*"></path>
+        <path value ="com.mogujie.R.anim.tusdk*"></path>
+
+        <!-- 极光、一键登录/绑定/认证 相关 anim、drawable 资源 -->
+        <path value="com.mogujie.R.anim.umcsdk*" />
+        <path value="com.mogujie.R.drawable.umcsdk*" />
+        <path value="com.mogujie.R.drawable.login_one_step*" />
+
+    </issue>
+
+
+    <!--keepmapping, sometimes if we need to support incremental upgrade, we should keep the old mapping-->
+    <!--isactive, whether to use keepmapping, you can set false to close it simply-->
+    <!--if you use -mapping to set keepmapping property in cammand line, these setting will be overlayed-->
+    <issue id="keepmapping" isactive="true">
+         <!--the old mapping path, in window use \, in linux use /, and the default path is the running location-->
+        <path value ="demo/mapping/res-mapping.txt" />
+    </issue>
+
+    <!--compress, if you want to compress the file, the name is relative path, such as resources.arsc, res/drawable-hdpi/welcome.png-->
+    <!--what can you compress? generally, if your resources.arsc less than 1m, you can compress it. and i think compress .png, .jpg is ok-->
+    <!--isactive, whether to use compress, you can set false to close it simply-->
+    <issue id ="compress" isactive="true">
+         <!--you must use / separation, and it support *, ?, such as *.png, *.jpg, res/drawable-hdpi/welcome_?.png-->
+        <path value ="*.png" />
+        <path value ="*.jpg" />
+        <path value ="*.jpeg" />
+        <path value ="*.gif" />
+        <path value ="resources.arsc" />
+    </issue>
+
+    <!--sign, if you want to sign the apk, and if you want to use 7zip, you must fill in the following data-->
+    <!--isactive, whether to use sign, you can set false to close it simply-->
+    <!--if you use -signature to set sign property in cammand line, these setting will be overlayed-->
+    <issue id="sign" isactive="true">
+        <!--the signature file path, in window use \, in linux use /, and the default path is the running location-->
+        <path value ="app/mogujie.com" />
+        <!--storepass-->
+        <storepass value="sharkshinjia" />
+        <!--keypass-->
+        <keypass value="sharkshinjia" />
+        <!--alias-->
+        <alias value="mogujie" />
+    </issue>
+
+</resproguard>
